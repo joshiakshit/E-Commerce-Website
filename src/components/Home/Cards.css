@@ -1,0 +1,48 @@
+.app {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* 4 columns */
+  gap: 20px;  /* Add space between the cards */
+  padding: 20px;
+  justify-items: center;  /* Center cards within each grid cell */
+}
+
+.four-image-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 250px;  /* Adjust width for better spacing */
+}
+
+.four-image-card h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+
+.grid-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.four-image-card button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #0073e6;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.four-image-card button:hover {
+  background-color: #005bb5;
+}
