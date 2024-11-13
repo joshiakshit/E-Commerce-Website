@@ -4,6 +4,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import myContext from "../context/myContext";
 import { auth, db } from "../Firebase/Firebase";
 import { Timestamp, doc, addDoc, collection } from "firebase/firestore";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Register() {
   const context = useContext(myContext);
@@ -41,21 +43,28 @@ function Register() {
       })
       if (user) {
         console.log("User Registered Successfully!!")
+        toast.success("User registered successfully!");
       }
-      navigate('/')
+      setTimeout(() => {
+        // Navigate to another page after the delay
+        navigate('/login');
+      }, 7000); // 3000 ms = 3 seconds
     } catch (error) {
       console.log(error.message);
     }
   };
   return (
     <>
+      <ToastContainer />
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img
-            alt="Your Company"
-            src="/src/assets/react.svg"
-            className="mx-auto h-10 w-auto"
-          />
+          <Link to="/">
+            <img
+              alt="Your Company"
+              src="/src/assets/react.svg"
+              className="mx-auto h-10 w-auto"
+            />
+          </Link>
           <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
             Register with us
           </h2>
@@ -77,10 +86,10 @@ function Register() {
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                   value={userSignup.email}
                   onChange={(e) => {
-                      setUserSignup({
-                          ...userSignup,
-                          email: e.target.value
-                      })
+                    setUserSignup({
+                      ...userSignup,
+                      email: e.target.value
+                    })
                   }}
                 />
               </div>
@@ -101,12 +110,12 @@ function Register() {
                   autoComplete="current-password"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                   value={userSignup.password}
-                        onChange={(e) => {
-                            setUserSignup({
-                                ...userSignup,
-                                password: e.target.value
-                            })
-                        }}
+                  onChange={(e) => {
+                    setUserSignup({
+                      ...userSignup,
+                      password: e.target.value
+                    })
+                  }}
 
                 />
               </div>
@@ -126,12 +135,12 @@ function Register() {
                   autoComplete="current-password"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                   value={userSignup.password}
-                        onChange={(e) => {
-                            setUserSignup({
-                                ...userSignup,
-                                password: e.target.value
-                            })
-                        }}
+                  onChange={(e) => {
+                    setUserSignup({
+                      ...userSignup,
+                      password: e.target.value
+                    })
+                  }}
                 />
               </div>
             </div>

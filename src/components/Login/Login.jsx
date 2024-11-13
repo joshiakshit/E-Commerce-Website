@@ -29,15 +29,15 @@ function Login() {
             email: "",
             password: ""
           })
-          if(user.role == "user"){
+          if (user.role == "user") {
             navigate('/');
           }
-          else{
+          else {
             navigate('/admin');
           }
         }
         );
-        return() => data;
+        return () => data;
       } catch (error) {
         console.log(error);
       }
@@ -51,11 +51,13 @@ function Login() {
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img
-            alt="Your Company"
-            src="/src/assets/react.svg"
-            className="mx-auto h-10 w-auto"
-          />
+          <Link to='/'>
+            <img
+              alt="Your Company"
+              src="/src/assets/react.svg"
+              className="mx-auto h-10 w-auto"
+            />
+          </Link>
           <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
             Sign in to your account
           </h2>
@@ -76,12 +78,12 @@ function Login() {
                   autoComplete="email"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                   value={userLogin.email}
-                        onChange={(e) => {
-                            setUserLogin({
-                                ...userLogin,
-                                email: e.target.value
-                            })
-                        }}
+                  onChange={(e) => {
+                    setUserLogin({
+                      ...userLogin,
+                      email: e.target.value
+                    })
+                  }}
                 />
               </div>
             </div>
@@ -107,10 +109,10 @@ function Login() {
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                   onChange={(e) => {
                     setUserLogin({
-                        ...userLogin,
-                        password: e.target.value
+                      ...userLogin,
+                      password: e.target.value
                     })
-                }}
+                  }}
                 />
               </div>
             </div>

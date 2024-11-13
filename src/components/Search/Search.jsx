@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {useNavigate } from "react-router-dom";
 import "./Search.css"
 
 // Simulating a database of products for suggestion
@@ -13,6 +14,7 @@ const productDatabase = [
   "Fitbit Charge 5",
   "Sony PlayStation 5",
   "Xbox Series X",
+  "Nike Air Jordans"
 ];
 
 const SearchPage = () => {
@@ -59,9 +61,11 @@ const SearchPage = () => {
     setSuggestions([]);
   };
 
+  const navigate = useNavigate();
   // Handle clicking on a suggestion
   const handleSuggestionClick = (suggestion) => {
     setSearchQuery(suggestion); // Set search query to the clicked suggestion
+    navigate('/product');
 
     // Update search history
     setSearchHistory((prevHistory) => {
